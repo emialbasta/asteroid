@@ -1,4 +1,5 @@
 import pygame
+import sys
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -22,6 +23,10 @@ def main():
 	while True:
 		screen.fill("black")
 		update_group.update(dt)
+		for asteroid in asteroid_group:
+		    if asteroid.is_colliding(player):
+		        print("Game over!")
+		        sys.exit()
 		for object in draw_group:
 			object.draw(screen)
 		pygame.display.flip()
