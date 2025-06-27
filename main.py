@@ -30,6 +30,15 @@ def main():
 		    if asteroid.is_colliding(player):
 		        print("Game over!")
 		        sys.exit()
+		for asteroid in asteroid_group:
+			for shot in shot_group:
+				if asteroid.is_colliding(shot):
+					result = asteroid.split()
+					shot.kill()
+					if result:
+						for new_asteroid in result:
+							print("New asteroid velocity:", new_asteroid.velocity)
+							asteroid_group.add(new_asteroid)
 		for object in draw_group:
 			object.draw(screen)
 		pygame.display.flip()

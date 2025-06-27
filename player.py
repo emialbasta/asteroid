@@ -29,7 +29,7 @@ class Player(CircleShape):
 		self.position += forward * PLAYER_SPEED * dt
 
 	def shoot(self):
-		if self.timer = 0:
+		if self.timer > 0:
 			return
 		offset = pygame.Vector2(0, self.radius).rotate(self.rotation)
 		shot_x = self.position.x + offset.x
